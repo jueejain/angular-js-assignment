@@ -1,0 +1,154 @@
+<!DOCTYPE>
+<html ng-app="asg">
+<head>
+	<title>DAA assignment</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>	
+	<style>
+		* {
+			  box-sizing: border-box;
+			}
+
+		.column {
+		  float: left;
+		}
+    	.gstyle
+    	{
+    		color: #808080;
+    	}
+    	.head{
+    		color: #808080;
+    		padding-left: 20px;
+    	}
+    	.datest{
+    		position: absolute;
+    		right: 850;
+    		color: #808080;
+    	}
+    	.filsst{
+    		position: absolute;
+    		right: 400;
+    		color: #808080;
+    	}
+		}
+	</style>
+</head>
+<body ng-controller="viewcontroller">
+	<h1><u><b>SELECT VIEW:</b></u></h1>
+		Options: <select ng-model="selectview">
+			<option value="list" selected>LIST</option>
+			<option value="grid">GRID</option>
+		</select>
+		<br><br>
+		<div ng-switch="selectview">
+			<div ng-switch-when="list" >
+					<p class="head">Name<span class="datest">Last Modified</span><span class="filsst">File type</span></p>
+					  <div class="column" ng-style="aa" ng-repeat="file in files" style="padding-left: 10px;">
+					    {{file.Name}}<span class="datest">{{CurrentDate | date:'dd-M-yy HH:mm'}}</span><span class="filsst">{{file.type}}</span>
+					  </div>
+					  
+				
+			</div>
+			
+			<div ng-switch-when="grid">
+					
+					  <div class="column" ng-style="bb" ng-repeat="file in files" style="padding-bottom: 20px;">
+					  	<div>
+					   {{file.Name}}
+					   <div class="gstyle">{{file.type}}</div>
+					</div>
+					  </div>
+					  
+					
+			</div>
+
+			
+		</div>
+	
+
+	<script>
+		var app = angular.module("asg", []);
+		app.controller("viewcontroller", function($scope) {
+	$scope.aa ={"width" : "100%"};
+	$scope.bb ={"width" : "25%"};
+	$scope.files = [
+       {
+            "Name" : "practical",
+            "type" : "File folder"
+        },{
+            "Name" : "assignment",
+            "type" : "JAVA File"
+        },{
+            "Name" : "draw",
+            "type" : "Text Document"
+        },{
+            "Name" : "Ernst",
+            "type" : "PNG File"
+        },{
+            "Name" : "screenshot",
+            "type" : "JPG File"
+        },{
+            "Name" : "report",
+            "type" : "PDF File"
+        },{
+            "Name" : "Resume",
+            "type" : "PDF File"
+        },{
+            "Name" : "practical 3",
+            "type" : "File folder"
+        },{
+            "Name" : "practical",
+            "type" : "File folder"
+        },{
+            "Name" : "assignment",
+            "type" : "JAVA File"
+        },{
+            "Name" : "draw",
+            "type" : "Text Document"
+        },{
+            "Name" : "Ernst",
+            "type" : "PNG File"
+        },{
+            "Name" : "screenshot",
+            "type" : "JPG File"
+        },{
+            "Name" : "report",
+            "type" : "PDF File"
+        },{
+            "Name" : "Resume",
+            "type" : "PYTHON File"
+        },{
+            "Name" : "practical 3",
+            "type" : "File folder"
+        },{
+            "Name" : "practical",
+            "type" : "File folder"
+        },{
+            "Name" : "assignment",
+            "type" : "JAVA File"
+        },{
+            "Name" : "draw",
+            "type" : "Text Document"
+        },{
+            "Name" : "Ernst",
+            "type" : "PNG File"
+        },{
+            "Name" : "screenshot",
+            "type" : "JPG File"
+        },{
+            "Name" : "report",
+            "type" : "PDF File"
+        },{
+            "Name" : "Resume",
+            "type" : "PYTHON File"
+        },{
+            "Name" : "practical 3",
+            "type" : "File folder"
+        }
+    ]
+    $scope.CurrentDate=new Date();
+		});
+	
+	</script>
+
+</body>
+</html>
